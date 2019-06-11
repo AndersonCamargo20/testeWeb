@@ -1,0 +1,161 @@
+<head> <style>p.alinha{padding-left: 1.8em }</style> </head>
+<br><br> <h2 class="text-center">
+    RELATÓRIO DE ANÁLISE FUNCIONAL DE PROGRAMA 
+    APLICATIVO FISCAL - EMISSOR DE CUPOM FISCAL
+</h2>
+
+<br><br><br><br><br><br><br><br><br><br><br>
+<h2 class="text-center">PAF-ECF<br><%= @compani.razaoSocial %></h2>
+
+<br><br><br><br><br><br><br><br><br>
+<h2 class="text-center">
+    Relatório de Teste Referente a Teste Preliminar
+    <br><%=@homologation.titulo%>
+</h2>
+
+<br><br><br><br><br>
+<h5 class="text-center">
+    Roteiro: <br>
+    Versão 01.04 <br>
+    Aplicável à versão 02.06 da <br>
+    ER-PAF-ECF
+</h5>
+
+<br><br><br><br><br><br><br><br><br>
+<h4 class="text-center"> 
+    Chapecó, <%= @homologation.created_at.strftime("%d/%m/%Y") %> <br> 
+</h4>
+<br> <br>
+
+<!-- PAGINA 02 -->
+<div class="text-center">
+<br>
+<h4 class="text-center">1. Períodos reservados/utilizados para a prestação de serviço <br></h4>
+<table style="width:100%" class="text-center">
+  <col>
+  <colgroup span="2"></colgroup>
+  <colgroup span="2"></colgroup>
+  <tr>
+    <th scope="col">Datas</th>
+    <th colspan="2" scope="colgroup">Matutino</th>
+    <th colspan="2" scope="colgroup">Vespertino</th>
+    <th colspan="2" scope="colgroup">Noturno</th>
+  </tr>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col">Início</th>
+    <th scope="col">Término</th>
+    <th scope="col">Início</th>
+    <th scope="col">Término</th>
+    <th scope="col">Início</th>
+    <th scope="col">Término</th>
+  </tr>
+  <% @periodos.each do |x| %>
+    <tr>
+        <th scope="row"><%= x.data.strftime("%d/%m/%Y")%></th>
+        <% if (@homologation.titulo != "PRESENCIAL") %>
+            <td  colspan="2"> Instalação / Configuração</td>
+        <% else %>
+            <td><%= x.matutinoInicial.strftime("%H:%M") if x.matutinoInicial.hour != 0%></td>
+            <td><%= x.matutinoFinal.strftime("%H:%M") if x.matutinoFinal.hour != 0%></td>
+        <% end %>
+        <td><%= x.vespertinoInicial.strftime("%H:%M") if x.vespertinoInicial.hour != 0%></td>
+        <td><%= x.vespertinoFinal.strftime("%H:%M") if x.vespertinoFinal.hour != 0%></td>
+        
+        <td><%= x.noturnoInicial.strftime("%H:%M") if x.noturnoInicial.hour != 0%></td>
+        <td><%= x.noturnoFinal.strftime("%H:%M") if x.noturnoFinal.hour != 0%></td>
+    </tr>
+   <% end %>
+</table>
+</div>
+
+<br><br><br><br>
+<h4 class="text-center">2. Representante(s) da empresa desenvolvedora <br></h4>
+<table style="width: 100% !important;">
+    <thead>
+        <tr>
+        <p class="alinha">
+        <th scope="col">Nome</th>
+        <th scope="col">Função</th>
+        <th scope="col">Assinatura</th>
+        </tr>
+    </thead>
+    <tbody>
+    <%  @representantes.each do |representante| %>
+        <tr>
+            <td><%= representante.representante_empresa.nome%></td>
+            <td><%= representante.representante_empresa.funcao %></td>
+            <td></td>
+        </tr>  
+        <% end %>
+    </tbody>
+</table>
+
+<br><br><br><br>
+<h4 class="text-center">3. Materiais e recursos utilizados <br></h4>
+<table style="width: 100% !important;">
+    <thead>
+        <tr>
+        <th scope="col">Equipamento</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+        </tr>
+    </thead>
+    <tbody>
+    <%  @recursos.each do |recurso| %>
+        <tr>
+            <td><%= recurso.nomeEquipamento%></td>
+            <td><%= recurso.marca %></td>
+            <td><%= recurso.modelo %></td>
+        </tr>  
+        <% end %>
+    </tbody>
+</table>
+
+<br><br><br><br>
+<p margin-left=30%>
+<p align="center">
+<h4 class="text-center">4. Características do PAF-ECF<br></h4>
+    <table style="width: 100% !important;">
+    <tbody>
+        <tr>
+        <div class="foo bar">
+            <td>Nome comercial do programa</td>
+            <td><%= @paf.nome_comercial%></td>
+        </tr>
+        
+        <tr>
+            <td>Identificação da versão</td>
+            <td><%= @paf.idetificacao_versao%></td>
+        </tr>
+        <tr>
+            <td>Identificação do executável principal</td>
+            <td><%= @paf.identificacao_executavel_principal%></td>
+        </tr>
+        <tr>
+            <td>Linguagem de programação</td>
+            <td><%= @paf.linguagem%></td>
+        </tr>
+        <tr>
+            <td>Sistema operacional suportado</td>
+            <% if @paf.x_linux == true %>
+                <td> Linux </td>
+            <% elsif @paf.x_mac == true %>
+                <td> Mac </td>
+            <% elsif @paf.x_windows == true %>
+                <td> MS Windows </td>
+            <% end %>
+        </tr>
+        <tr>
+            <td>Nome comercial do programa</td>
+            <td><%= @paf.nome_comercial%></td>
+        </tr>
+        <tr>
+            <td>Nome comercial do programa</td>
+            <td><%= @paf.nome_comercial%></td>
+        </tr>
+
+    </tbody>
+  
+</table>
+

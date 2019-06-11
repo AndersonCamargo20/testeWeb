@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @representante_empresa.nome %>
+</p>
+
+<p>
+  <strong>Funcao:</strong>
+  <%= @representante_empresa.funcao %>
+</p>
+
+<p>
+  <strong>Compani:</strong>
+  <%= @representante_empresa.compani %>
+</p>
+
+<%= link_to 'Edit', edit_representante_empresa_path(@representante_empresa) %> |
+<%= link_to 'Back', representante_empresas_path %>

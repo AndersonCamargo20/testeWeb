@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @controle_periodo.data %>
+</p>
+
+<p>
+  <strong>Matutinoinicial:</strong>
+  <%= @controle_periodo.matutinoInicial %>
+</p>
+
+<p>
+  <strong>Matutinofinal:</strong>
+  <%= @controle_periodo.matutinoFinal %>
+</p>
+
+<p>
+  <strong>Vespertinoinicial:</strong>
+  <%= @controle_periodo.vespertinoInicial %>
+</p>
+
+<p>
+  <strong>Vespertinofinal:</strong>
+  <%= @controle_periodo.vespertinoFinal %>
+</p>
+
+<p>
+  <strong>Noturnoinicial:</strong>
+  <%= @controle_periodo.noturnoInicial %>
+</p>
+
+<p>
+  <strong>Noturnofinal:</strong>
+  <%= @controle_periodo.noturnoFinal %>
+</p>
+
+<p>
+  <strong>Homologation:</strong>
+  <%= @controle_periodo.homologation %>
+</p>
+
+<%= link_to 'Edit', edit_controle_periodo_path(@controle_periodo) %> |
+<%= link_to 'Back', controle_periodos_path %>

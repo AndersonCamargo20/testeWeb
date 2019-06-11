@@ -1,0 +1,32 @@
+<div class="square">
+  <h1 class="text-center">Materiais Recursos</h1> <br>
+  <table class="table table-striped table-responsive-sm text-center" style="width: 100% !important;">
+    <thead class="thead-dark">
+      <tr>
+      <th>Nome Equipamento </th>
+      <th>Marca</th>
+      <th>Modelo</th>    
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @material_recursos.each do |material_recurso| %>
+      <tr>
+        <td><%= material_recurso.nomeEquipamento %></td>
+        <td><%= material_recurso.marca %></td>
+        <td><%= material_recurso.modelo %></td>
+        <td><%= paf_ecf.homologation.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+        <td>
+          <%= link_to 'Editar', edit_material_recurso_path(material_recursos), :class => "btn btn-warning text-white" %>
+          <%= link_to 'Excluir',material_recurso, method: :delete, data: { confirm: 'Você tem certeza que deseja excluir este registro?' }, :class => "btn btn-danger  text-white" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+  <div style="position:absolute; bottom: 4%;">
+    <%= link_to new_material_recurso_path, :class => "btn btn-success text-white" do %>
+      Cadastrar Material Recurso
+    <% end %>
+  </div>
+</div>

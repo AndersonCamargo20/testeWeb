@@ -1,0 +1,46 @@
+<%= form_for(homologation) do |f| %>
+  <% if homologation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(homologation.errors.count, "error") %> prohibited this compani from being saved:</h2>
+
+      <ul>
+      <% homologation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+      <div class="col-12">
+        <%= f.label "" do %>
+           Tipo <span style="color:red;">(*)</span>  
+        <% end %>
+        <br> <%= f.select :titulo, ['REMOTO', 'PRESENCIAL'] %>
+      </div>
+  </div>
+
+  <br>
+  <div class="row">
+      <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+        <%= f.label "" do %>
+          Empresa <span style="color:red;">(*)</span> 
+        <% end %>
+        <br> <%= f.select :compani_id, Compani.all.collect{|x| [x.razaoSocial, x.id]} ,:prompt => "Selecione a empresa" %>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-12 col-lg-2 col-sm-2 col-xs-2">
+      <%= button_tag(:class=> "btn btn-success btn-block") do %>  Salvar 
+      <%end %>
+      </div>
+      <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+        <%= link_to homologations_path, :class => "btn btn-danger text-white btn-block" do %>
+          Cancelar  
+        <% end %>
+      </div>
+    </div>
+
+<% end %>

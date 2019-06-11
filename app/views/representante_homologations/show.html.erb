@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Homologation:</strong>
+  <%= @representante_homologation.homologation %>
+</p>
+
+<p>
+  <strong>Representante empresa:</strong>
+  <%= @representante_homologation.representante_empresa %>
+</p>
+
+<%= link_to 'Edit', edit_representante_homologation_path(@representante_homologation) %> |
+<%= link_to 'Back', representante_homologations_path %>

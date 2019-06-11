@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Representantes Homologations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Homologation</th>
+      <th>Representanteempresa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @representantes_homologations.each do |representantes_homologation| %>
+      <tr>
+        <td><%= representantes_homologation.homologation %></td>
+        <td><%= representantes_homologation.representanteEmpresa %></td>
+        <td><%= link_to 'Show', representantes_homologation %></td>
+        <td><%= link_to 'Edit', edit_representantes_homologation_path(representantes_homologation) %></td>
+        <td><%= link_to 'Destroy', representantes_homologation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Representantes Homologation', new_representantes_homologation_path %>

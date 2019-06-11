@@ -1,0 +1,31 @@
+<div class="square">
+  <h1 class="text-center"> (<%= @total%>) Homologações</h1> <br>
+  <table class="table table-striped table-responsive-sm text-center" style="width: 100% !important;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Cod</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Empresa</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @homologations.each do |homologation| %>
+        <tr>
+          <td><%= homologation.id%></td>
+          <td><%= homologation.titulo %></td>
+          <td><%= homologation.compani.razaoSocial %></td>
+          <td>
+            <%= link_to 'Editar', edit_homologation_path(homologation), :class => "btn btn-warning text-white" %>
+            <%= link_to 'Excluir', homologation, method: :delete, data: { confirm: 'Você tem certeza que deseja excluir esta Homologação?' }, :class => "btn btn-danger  text-white" %>
+          </td>
+        </tr>  
+      <% end %>
+    </tbody>
+  </table>
+  <div style="position:absolute; bottom: 4%;">
+    <%= link_to new_homologation_path, :class => "btn btn-success text-white" do %>
+      Cadastrar Homologação 
+    <% end %>
+  </div>
+</div>

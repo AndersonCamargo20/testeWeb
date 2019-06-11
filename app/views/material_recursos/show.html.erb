@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nomeequipamento:</strong>
+  <%= @material_recurso.nomeEquipamento %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @material_recurso.marca %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @material_recurso.modelo %>
+</p>
+
+<p>
+  <strong>Paf ecf:</strong>
+  <%= @material_recurso.paf_ecf %>
+</p>
+
+<%= link_to 'Edit', edit_material_recurso_path(@material_recurso) %> |
+<%= link_to 'Back', material_recursos_path %>

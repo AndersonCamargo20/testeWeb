@@ -1,0 +1,1 @@
+json.partial! "representante_homologations/representante_homologation", representante_homologation: @representante_homologation

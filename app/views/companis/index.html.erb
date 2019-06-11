@@ -1,0 +1,30 @@
+<div class="square">
+  <h1 class="text-center"> (<%= @total%>) Empresas</h1> <br>
+  <table class="table table-striped table-responsive-sm text-center" style="width: 100% !important;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Razao Social</th>
+        <th scope="col">CNPJ</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @companis.each do |empresa| %>
+        <tr>
+          <td><%= empresa.razaoSocial%></td>
+          <td><%= empresa.cnpj%></td>
+          <td><%= empresa.endereco.estado%></td>
+          <td>
+            <%= link_to 'Editar', edit_compani_path(empresa), :class => "btn btn-warning text-white"  %>
+            <%= link_to 'Excluir', empresa, method: :delete, data: { confirm: 'Você tem certeza que deseja excluir esta empresa?' }, :class => "btn btn-danger  text-white" %>
+          </td>
+        </tr>  
+      <% end %>
+    </tbody>
+  </table>
+  <div style="position:absolute; bottom: 2%;">
+    <%= link_to new_compani_path, :class => "btn btn-success text-white" do %> Cadastrar Empresa 
+    <% end %>
+  </div>
+</div>

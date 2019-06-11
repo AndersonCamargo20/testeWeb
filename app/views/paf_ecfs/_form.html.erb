@@ -1,0 +1,270 @@
+<%= form_for(paf_ecf) do |f| %>
+  <% if paf_ecf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(paf_ecf.errors.count, "error") %> prohibited this paf_ecf from being saved:</h2>
+
+      <ul>
+      <% paf_ecf.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+      <%= f.label "" do %>
+        Nome Comercial <span style="color:red;">(*)</span>  
+      <% end %>
+      <%= f.text_field :nome_comercial, :class => "borderInput inputWith" %>
+    </div>
+    <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+      <%= f.label "" do %>
+        Identificação da versão <span style="color:red;">(*)</span>  
+      <% end %>
+      <%= f.text_field :idetificacao_versao, :class => "borderInput inputWith" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+      <%= f.label "" do %>
+        Identificação do executável principal <span style="color:red;">(*)</span>  
+      <% end %>
+      <%= f.text_field :identificacao_executavel_principal, :class => "borderInput inputWith" %>
+    </div>
+    <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+      <%= f.label "" do %>
+        Linguagem <span style="color:red;">(*)</span>  
+      <% end %>
+      <%= f.text_field :linguagem, :class => "borderInput inputWith" %>
+    </div>
+  </div>
+    
+  <br>Sistema Operacional Suportado:  <br><br>
+  
+  <div class="row">
+    <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+      <%= f.label "" do %>
+        MS Windows <span style="color:red;">(*)</span>  <%= f.check_box :x_windows, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+      <%= f.label "" do %>
+        Mac <span style="color:red;">(*)</span>  <%= f.check_box :x_mac, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+      <%= f.label "" do %>
+        Linux <span style="color:red;">(*)</span>  <%= f.check_box :x_linux, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+  </div>
+  <hr style="border: 1  px solid #83a5aa !important;"><br>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+      <%= f.label "" do %>
+        Gerenciador de Banco de Dados <span style="color:red;">(*)</span>  
+      <% end %>
+      <%= f.text_field :gerenciador_db, :class => "borderInput inputWith" %>
+    </div>
+    <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+      <%= f.label "" do %>
+        Tipo de desenvolvimento <span style="color:red;">(*)</span><br>  
+      <% end %>
+      <br><%= f.select :tipo_desenvolvimento, ['COMERCIALIZÁVEL', 'ESCLUSIVO PRÓPRIO', 'EXCLUSIVO TERCERIZADO'], :prompt => "Selecione" , :class => "borderInput inputWith" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-4 col-md-4 col-xl-4 col-lg-4">
+      <%= f.label "" do %>
+       Tipo de Funcionamento <span style="color:red;">(*)</span>  
+      <% end %>
+      <br><%= f.select :tipo_funcionamento, ['EXCLUSIVO STAND ALONE', 'EM REDDE', 'PARAMETRIZÁVEL'], :prompt => "Selecione" , :class => "borderInput inputWith" %>
+    </div>
+    <div class="col-12 col-sm-4 col-md-4 col-xl-4 col-lg-4">
+      <%= f.label "" do %>
+        Geração dos arquivos Sintegra <span style="color:red;">(*)</span><br>  
+      <% end %>
+      <br><%= f.select :arquivo_sintegra, ['PELO PAF-ECF', 'PELO SISTEMA DE RETAGUARDA', 'PELO SISTEMA PED OU EFD'], :prompt => "Selecione" , :class => "borderInput inputWith" %>
+    </div>
+    <div class="col-12 col-sm-4 col-md-4 col-xl-4 col-lg-4">
+      <%= f.label "" do %>
+        Integração do PAF-ECF <span style="color:red;">(*)</span><br>  
+      <% end %>
+      <br><%= f.select :integracao_paf, ['COM SISTEMA DE GESTÃO OU RETAGUARDA', 'COM SISTEMA PED', 'COM AMBOS', 'NÃO INTEGRADO'], :prompt => "Selecione" , :class => "borderInput inputWith" %>
+    </div>
+  </div>
+  
+
+  <br><br>  Formas de impressão de item do cupom Fiscal <span style="color:red;">(*)</span> <br><br> 
+  
+  <div class="row">
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+      <%= f.label "" do %>
+        Concomitante <%= f.check_box :x_imp_concomitante, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+      <%= f.label "" do %>
+        Não Concomitante, com emissão de DAV <%= f.check_box :x_imp_nao_concomitante, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+      <%= f.label "" do %>
+        Não Concomitante, Com controle de pré-venda <%= f.check_box :x_imp_prevenda, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+      <%= f.label "" do %>
+        Não Concomitante, Com controle de conta de cliente <%= f.check_box :x_imp_conta_cliente, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+  </div>
+  <hr style="border: 1px solid #83a5aa !important;">
+
+  <div class="row">
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+      <%= f.label "" do %>
+        DAV emitido sem possibilidade de impressão <%= f.check_box :x_imp_dav_sem_impressao, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+      <%= f.label "" do %>
+        DAV - impresso em impressora não fiscal <%= f.check_box :x_imp_dav_impressora_nao_fiscal, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+      <%= f.label "" do %>
+        DAV impresso em ECF <%= f.check_box :x__imp_dav_impressora_fiscal, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+      <%= f.label "" do %>
+      Tratamento de interrupção durante emissao do cupom fiscal. <span style="color:red;">(*)</span>  
+      <% end %>
+      <br><%= f.select :tratamento_interrupcao, ['RECUPERAÇÃO DE DADOS', 'CANCELAMENTO AUTOMÁTICO', 'BLOQUEIO DE FUNÇÕES'], :prompt => "Selecione" , :class => "borderInput inputWith" %>
+    </div>
+  </div>
+
+
+   
+ <br><br> Perfis:<span style="color:red;">(*)</span> 
+  <div class="row">
+    <div class="col-12 col-sm-4 col-md-4 col-xl-4 col-lg-4">
+      <%= f.label "" do %>
+        W <%= f.check_box :x_perfil_w, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-4 col-md-4 col-xl-4 col-lg-4">
+      <%= f.label "" do %>
+        V <%= f.check_box :x_perfil_v, :class => "borderInput inputWith" %>  
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-4 col-md-4 col-xl-4 col-lg-4">
+      <%= f.label "" do %>
+        T <%= f.check_box :x_perfil_t, :class => "borderInput inputWith" %>
+      <% end %>
+    </div>
+  </div>
+  <hr style="border: 2px solid #83a5aa !important;">
+
+  <br> <legend> Aplicações Especiais  <span style="color:red;"> </legend>(*)</span><hr style="border: 2px solid #83a5aa !important;">
+    <div class="row">
+      <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+        <%= f.label "" do %>
+        Posto de Pedágio <%= f.check_box :x_apl_pedagio, :class => "borderInput inputWith" %>
+        <% end %>
+      </div>
+
+      <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+        <%= f.label "" do %>
+        Transporte de Passageiros  <%= f.check_box :x_apl_passageiros, :class => "borderInput inputWith" %>
+        <% end %>
+      </div>
+
+      <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+        <%= f.label "" do %>
+          Farmácia de Manipulação  <%= f.check_box :x_apl_farmacia, :class => "borderInput inputWith" %>
+        <% end %>
+      </div>
+
+      <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+        <%= f.label "" do %>
+          Oficina de Conserto com DAV-OS  <%= f.check_box :x_apl_oficina_dav, :class => "borderInput inputWith" %>
+        <% end %>
+      </div>
+
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+    <%= f.label "" do %>
+      Oficina de Conserto com Conta de Cliente  <%= f.check_box :x_apl_oficina_cliente, :class => "borderInput inputWith" %>
+    <% end %>
+    </div>
+
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+    <%= f.label "" do %>
+     Bar, Restaurante e Estabelecimento Similar com Utilização de ECF- Restaurante e Balança Interligada <%= f.check_box :x_apl_bar_com_balanca, :class => "borderInput inputWith" %>
+    <% end %>
+    </div>
+
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+    <%= f.label "" do %>
+     Bar, Restaurante e Estabelecimento Similar com Utilização de ECF- Restaurante sem Balança Interligada <%= f.check_box :x_apl_bar_sem_balanca, :class => "borderInput inputWith" %>
+    <% end %>
+    </div>
+
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+    <%= f.label "" do %>
+     Bar, Restaurante e Estabelecimento Similar com Utilização de ECF-Normal e Balança Interligada <%= f.check_box :x_apl_bar_interligado, :class => "borderInput inputWith" %>
+    <% end %>
+    </div>
+    
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+    <%= f.label "" do %>
+     Bar, Restaurante e Estabelecimento Similar com Utilização de ECF-Normal e Sem Balança Interligada <%= f.check_box :x_apl_bar_nao_interligado, :class => "borderInput inputWith" %>
+    <% end %>
+    </div>
+
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+    <%= f.label "" do %>
+     Posto Revendedor de Combustível com Sistema de Interligação de Bombas <%= f.check_box :x_apl_posto_com_bomba, :class => "borderInput inputWith" %>
+    <% end %>
+    </div>
+
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+    <%= f.label "" do %>
+     Posto Revendedor de Combustível sem Sistema de Interligação de Bombas <%= f.check_box :x_apl_posto_sem_bomba, :class => "borderInput inputWith" %>
+    <% end %>
+    </div>
+
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+    <%= f.label "" do %>
+     Estacionamento, Motéis e Similares, que pratiquem o Controle de Tráfego de Veículos ou Pessoas <%= f.check_box :x_apl_estacionamento, :class => "borderInput inputWith" %>
+    <% end %>
+    </div>
+
+    <div class="col-12 col-sm-3 col-md-3 col-xl-3 col-lg-3">
+    <%= f.label "" do %>
+      Prestador de Serviço de Cinema, Espetáculos ou Simalres <%= f.check_box :x_apl_cinema, :class => "borderInput inputWith" %>
+    <% end %>
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+      <%= f.label "" do %>
+        <strong> Homologação </strong> <span style="color:red;">(*)</span> 
+      <% end %>
+      <br> <%= f.select :homologation_id, Homologation.all.order('titulo DESC').collect{|x| ["#{x.titulo} - #{x.compani.razaoSocial} (#{x.created_at.strftime("%d/%m/%Y")})" , x.id]} ,:prompt => "Selecione a homologação" %>
+    </div>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

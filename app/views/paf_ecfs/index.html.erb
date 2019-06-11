@@ -1,0 +1,34 @@
+<div class="square">
+  <h1 class="text-center"> (<%= @total%>) Homologações</h1> <br>
+  <table class="table table-striped table-responsive-sm text-center" style="width: 100% !important;">
+    <thead class="thead-dark">
+      <tr>
+      <th>Nome comercial</th>
+      <th>Nome da empresa</th>
+      <th>Tipo de Teste</th>
+      <th>Inicio do teste</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @paf_ecfs.each do |paf_ecf| %>
+      <tr>
+        <td><%= paf_ecf.nome_comercial %></td>
+        <td><%= paf_ecf.homologation.compani.razaoSocial %></td>
+        <td><%= paf_ecf.homologation.titulo %></td>
+        <td><%= paf_ecf.homologation.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+        <td>
+          <%= link_to 'Editar', edit_paf_ecf_path(paf_ecf), :class => "btn btn-warning text-white" %>
+          <%= link_to 'Excluir', paf_ecf, method: :delete, data: { confirm: 'Você tem certeza que deseja excluir este registro?' }, :class => "btn btn-danger  text-white" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+  <div style="position:absolute; bottom: 4%;">
+    <%= link_to new_paf_ecf_path, :class => "btn btn-success text-white" do %>
+      Cadastrar PAF-ECF 
+    <% end %>
+  </div>
+</div>
+

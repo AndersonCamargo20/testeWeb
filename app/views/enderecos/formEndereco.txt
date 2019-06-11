@@ -1,0 +1,50 @@
+ <div class="row">
+  <%= f.label :rua %>
+  <%= f.text_field :rua %>
+</div>
+</div>
+  <div class="field">
+    <%= f.label :bairro %>
+    <%= f.text_field :bairro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cidade %>
+    <%= f.text_field :cidade %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estado %>
+    <%= f.text_field :estado %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+domingo xiozjxo 
+ <div class="row">
+  <div class="col-4">
+    <%= f.label "" do %>
+      Informe o Bairro <span style="color:red;">(*)</span>  
+    <% end %>
+    <br> <%= f.text_field :bairro, :class => "borderInput inputWith" %>
+  </div>
+</div>
+<div class="row">
+      <div class="col-4">
+        <%= f.label "" do %>
+         Informe a Cidade <span style="color:red;">(*)</span>  
+        <% end %>
+        <br> <%= f.text_field :cidade, :class => "borderInput inputWith" %>
+      </div>
+  
+
+      <div class="row">
+      <div class="col-4 col-sm-4 col-md-4 col-xl-4 col-lg-4">
+        <%= f.label "" do %>
+          Informe o estado <span style="color:red;">(*)</span>  
+        <% end %>
+        <br> <%= f.text_field :estado, :class => "borderInput inputWith" %>
+      </div>

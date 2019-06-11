@@ -1,0 +1,34 @@
+<%= form_for(endereco) do |f| %>
+  <% if endereco.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(endereco.errors.count, "error") %> prohibited this endereco from being saved:</h2>
+
+      <ul>
+      <% endereco.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+  <div class="row">
+  <div class="col-12">
+    <%= f.label "" do %>
+      Informe a Rua <span style="color:red;">(*)</span>  
+    <% end %>
+    <br> <%= f.text_field :rua, :class => "borderInput inputWith" %>
+  </div>
+  
+  <div class="row">
+  <div class="col-12 ">
+    <%= f.label "" do %>
+      Informe o Bairro <span style="color:red;">(*)</span>  
+    <% end %>
+    <br> <%= f.text_field :bairro, :class => "borderInput inputWith" %>
+  </div>
+ 
+
+<% end %>
+
+

@@ -1,0 +1,94 @@
+<%= form_for(controle_periodo) do |f| %>
+  <% if controle_periodo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(controle_periodo.errors.count, "error") %> prohibited this compani from being saved:</h2>
+
+      <ul>
+      <% controle_periodo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="row">
+      <div class="col-12">
+        <%= f.label "" do %>
+          <strong> Data </strong> <span style="color:red;">(*)</span> 
+        <% end %>
+        <br> <%= f.date_select :data, :order => [:day, :month, :year] %>
+      </div>
+    </div>
+    <br>
+    
+    <div class="row">
+      <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+        <%= f.label "" do %>
+         <strong > Matutino Inicial </strong>
+        <% end %>
+        <br> <%= f.time_select :matutinoInicial, prompt: {hour: 'Hora', minute: 'Minuto'} %>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+        <%= f.label "" do %>
+         <strong> Matutino Final </strong>
+        <% end %>
+        <br> <%= f.time_select :matutinoFinal, prompt: {hour: 'Hora', minute: 'Minuto'} %>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+        <%= f.label "" do %>
+          <strong> Vespertino Inicial </strong>
+        <% end %>
+        <br> <%= f.time_select :vespertinoInicial, prompt: {hour: 'Hora', minute: 'Minuto'} %>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+        <%= f.label "" do %>
+          <strong> Vespertino  Final </strong>
+        <% end %>
+        <br> <%= f.time_select :vespertinoFinal, prompt: {hour: 'Hora', minute: 'Minuto'} %>
+      </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+        <%= f.label "" do %>
+         <strong> Noturno Inicial </strong>
+        <% end %>
+        <br> <%= f.time_select :noturnoInicial, prompt: {hour: 'Hora', minute: 'Minuto'} %>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+        <%= f.label "" do %>
+          <strong> Noturno Final </strong>
+        <% end %>
+        <br> <%= f.time_select :noturnoFinal, prompt: {hour: 'Hora', minute: 'Minuto'} %>
+      </div>
+    </div>
+    
+    <br>
+    <div class="row">
+      <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+        <%= f.label "" do %>
+         <strong> Homologação </strong> <span style="color:red;">(*)</span> 
+        <% end %>
+        <br> <%= f.select :homologation_id, Homologation.all.order('titulo DESC').collect{|x| ["#{x.id}: #{x.titulo} - #{x.compani.razaoSocial} (#{x.created_at.strftime("%d/%m/%Y")})" , x.id]} ,:prompt => "Selecione a homologação" %>
+      </div>
+    </div>
+    
+    <br>
+    <div class="row">
+      <div class="col-12 col-lg-2 col-sm-2 col-xs-2">
+      <%= button_tag(:class=> "btn btn-success btn-block") do %>  Salvar 
+      <%end %>
+      </div>
+      <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+        <%= link_to controle_periodos_path, :class => "btn btn-danger text-white btn-block" do %>
+          Cancelar 
+        <% end %>
+      </div>
+    </div>
+
+<% end %>

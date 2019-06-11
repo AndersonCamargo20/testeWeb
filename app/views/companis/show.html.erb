@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Razaosocial:</strong>
+  <%= @compani.razaoSocial %>
+</p>
+
+<p>
+  <strong>Nomefantasia:</strong>
+  <%= @compani.nomeFantasia %>
+</p>
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @compani.cnpj %>
+</p>
+
+<p>
+  <strong>Ie:</strong>
+  <%= @compani.ie %>
+</p>
+
+<p>
+  <strong>Im:</strong>
+  <%= @compani.im %>
+</p>
+
+<p>
+  <strong>References:</strong>
+  <%= @compani.references %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @compani.endereco %>
+</p>
+
+<%= link_to 'Editar', edit_compani_path(@compani) %> |
+<%= link_to 'Voltar', companis_path %>

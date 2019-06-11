@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2019-05-27 20:22:18
+  matutinoInicial: 2019-05-27 20:22:18
+  matutinoFinal: 2019-05-27 20:22:18
+  vespertinoInicial: 2019-05-27 20:22:18
+  vespertinoFinal: 2019-05-27 20:22:18
+  noturnoInicial: 2019-05-27 20:22:18
+  noturnoFinal: 2019-05-27 20:22:18
+  homologation: one
+
+two:
+  data: 2019-05-27 20:22:18
+  matutinoInicial: 2019-05-27 20:22:18
+  matutinoFinal: 2019-05-27 20:22:18
+  vespertinoInicial: 2019-05-27 20:22:18
+  vespertinoFinal: 2019-05-27 20:22:18
+  noturnoInicial: 2019-05-27 20:22:18
+  noturnoFinal: 2019-05-27 20:22:18
+  homologation: two

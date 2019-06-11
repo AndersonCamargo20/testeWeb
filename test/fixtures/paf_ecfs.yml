@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome_comercial: MyString
+  idetificacao_versao: MyString
+  identificacao_executavel_principal: MyString
+  linguagem: MyString
+  x_linux: false
+  x_mac: false
+  x_windows: false
+  gerenciador_db: MyString
+  tipo_desenvolvimento: MyString
+  x_funcionamento_stand_alone: false
+  x_funcionamento_rede: false
+  x_funcionamento_parametrizavel: false
+  x_sintegra_paf: false
+  x_sintegra_retaguarda: false
+  x_sintegra_ped: false
+  integracao_paf: MyString
+  x_imp_concomitante: false
+  x_imp_nao_concomitante: false
+  x_imp_prevenda: false
+  x_imp_conta_cliente: false
+  x_imp_dav_sem_impressao: false
+  x_imp_dav_impressora_nao_fiscal: false
+  x__imp_dav_impressora_fiscal: false
+  tratamento_interrupcao: MyString
+
+two:
+  nome_comercial: MyString
+  idetificacao_versao: MyString
+  identificacao_executavel_principal: MyString
+  linguagem: MyString
+  x_linux: false
+  x_mac: false
+  x_windows: false
+  gerenciador_db: MyString
+  tipo_desenvolvimento: MyString
+  x_funcionamento_stand_alone: false
+  x_funcionamento_rede: false
+  x_funcionamento_parametrizavel: false
+  x_sintegra_paf: false
+  x_sintegra_retaguarda: false
+  x_sintegra_ped: false
+  integracao_paf: MyString
+  x_imp_concomitante: false
+  x_imp_nao_concomitante: false
+  x_imp_prevenda: false
+  x_imp_conta_cliente: false
+  x_imp_dav_sem_impressao: false
+  x_imp_dav_impressora_nao_fiscal: false
+  x__imp_dav_impressora_fiscal: false
+  tratamento_interrupcao: MyString

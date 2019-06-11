@@ -1,0 +1,31 @@
+<div class="square">
+  <h1 class="text-center">Representante/s Empresa</h1> <br>
+  <table class="table table-striped table-responsive-sm text-center" style="width: 100% !important;">
+    <thead class="thead-dark">
+      <tr>
+      <th>Nome</th>
+      <th>Função</th>
+      <th>Empresa</th>
+      <th>Opções</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @representante_empresas.each do |representante_empresa| %>
+      <tr>
+        <td><%=representante_empresa.nome %></td>
+        <td><%=representante_empresa.funcao %></td>
+        <td><%=representante_empresa.compani.razaoSocial %></td>
+        <td>
+          <%= link_to 'Editar', edit_representante_empresa_path(representante_empresa), :class => "btn btn-warning text-white" %>
+          <%= link_to 'Excluir',representante_empresa, method: :delete, data: { confirm: 'Você tem certeza que deseja excluir este registro?' }, :class => "btn btn-danger  text-white" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+  <div style="position:absolute; bottom: 4%;">
+    <%= link_to new_representante_empresa_path, :class => "btn btn-success text-white" do %>
+      Cadastrar Material Recurso
+    <% end %>
+  </div>
+</div>

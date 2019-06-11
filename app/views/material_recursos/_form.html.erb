@@ -1,0 +1,56 @@
+<%= form_for(material_recurso) do |f| %>
+  <% if material_recurso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(material_recurso.errors.count, "error") %> prohibited this material_recurso from being saved:</h2>
+
+      <ul>
+      <% material_recurso.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+      <%= f.label "" do %>
+        Nome Equipamento <span style="color:red;">(*)</span>  
+      <% end %>
+      <%= f.text_field :nomeEquipamento, :class => "borderInput inputWith" %>
+    </div>
+    <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+      <%= f.label "" do %>
+       Marca <span style="color:red;">(*)</span>  
+      <% end %>
+      <%= f.text_field :marca, :class => "borderInput inputWith" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+      <%= f.label "" do %>
+        Modelo <span style="color:red;">(*)</span>  
+      <% end %>
+      <%= f.text_field :modelo, :class => "borderInput inputWith" %>
+    </div>
+    <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+      <%= f.label "" do %>
+        PAF-ECF <span style="color:red;">(*)</span> 
+      <% end %>
+      <br> <%= f.select :paf_ecf_id, PafEcf.all.collect{|x| [x.nome_comercial, x.id]} ,:prompt => "Selecione o PAF" %>
+    </div>
+  </div>
+  <br><br>
+  <div class="row">
+    <div class="col-12 col-lg-2 col-sm-2 col-xs-2">
+      <%= button_tag(:class=> "btn btn-success btn-block") do %>  Salvar <%end %>
+    </div>
+    <div class="col-12 col-sm-2 col-md-2 col-xl-2 col-lg-2">
+      <%= link_to material_recursos_path, :class => "btn btn-danger text-white btn-block" do %>
+        Cancelar  
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
+

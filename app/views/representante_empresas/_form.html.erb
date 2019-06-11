@@ -1,0 +1,42 @@
+<%= form_for(representante_empresa) do |f| %>
+  <% if representante_empresa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(representante_empresa.errors.count, "error") %> prohibited this representante_empresa from being saved:</h2>
+
+      <ul>
+      <% representante_empresa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+  <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+    <%= f.label "" do %>
+      Nome  <span style="color:red;">(*)</span>  
+    <% end %>
+    <%= f.text_field :nome, :class => "borderInput inputWith" %>
+  </div>
+  <div class="row">
+  <div class="col-12 col-sm-6 col-md-6 col-xl-6 col-lg-6">
+    <%= f.label "" do %>
+     Função <span style="color:red;">(*)</span>  
+    <% end %>
+    <%= f.text_field :funcao, :class => "borderInput inputWith" %>
+  </div>
+
+  <div class="field">
+  <label for="assinatura">Assinatura:</label>
+  <input type="text" id="Assinatura" />
+  </div>
+
+  <div class="field">
+    <%= f.label :compani_id %>
+    <%= f.text_field :compani_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

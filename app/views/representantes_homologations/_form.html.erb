@@ -1,0 +1,27 @@
+<%= form_for(representantes_homologation) do |f| %>
+  <% if representantes_homologation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(representantes_homologation.errors.count, "error") %> prohibited this representantes_homologation from being saved:</h2>
+
+      <ul>
+      <% representantes_homologation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :homologation_id %>
+    <%= f.text_field :homologation_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :representante_empresas_id %>
+    <%= f.text_field :representante_empresas_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
